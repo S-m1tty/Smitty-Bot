@@ -5,7 +5,7 @@ import random
 import asyncio
 
 prefix = ("$", "<")
-token = "NDk4NTQ4NjE0MDc1OTA4MDk4.DpvVwA.GEH7lcxeqH6KqrumwDvhFKwcnvM"
+token = ""
 
 client = commands.Bot(command_prefix = prefix)
 client.remove_command('help')
