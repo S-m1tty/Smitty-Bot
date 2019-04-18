@@ -7,10 +7,10 @@ class Speak():
 	async def on_message(self, message):
 		if message.server is None and message.author.id == "Your ID here":
 
-			channel = (message.content).split()[-1]
-			messageToSend = str((message.content).split()[:-1]).replace(',', ' ').replace("'",'').replace('[', '').replace(']','')
+			channel = message.content[-18:]
 			channelToSend = self.client.get_channel(channel)
-
+			messageToSend = message.content[:-19]
+			
 			if not message.content.startswith("$"):
 				await self.client.send_message(channelToSend, messageToSend)
 
