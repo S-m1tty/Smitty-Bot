@@ -5,14 +5,29 @@ import random
 import asyncio
 
 prefix = ("$", "<")
-token = ""
+token = "Your Token Here"
 
 client = commands.Bot(command_prefix = prefix)
 client.remove_command('help')
 extensions = ['command', 'respond']
 
-authServerList = [] # Authorized server ID's
+try:
+    with open('authorized_servers.txt', 'r') as f:
+        authServerList = f.read().split(',')
+        f.close()
+except FileNotFoundError:
+    with open('authorized_servers.txt', 'w+') as f:
+        authServerList = []
+        f.close()
+        print("NO AUTHORIZED SERVERS")
 
+@client.command(pass_context = True)
+async def authorize(ctx, serverId):
+    if ctx.message.server is None and ctx.message.author.id == "Your ID Here":
+        with open('authorized_servers.txt', 'a') as f:
+            f.write(',' + serverId)
+            f.close()
+        print("Authorized server :: " + serverId)
 
 @client.command()
 async def load(extension):
