@@ -3,13 +3,16 @@ from discord import Game
 import discord
 import random
 import asyncio
+import traceback
 
-prefix = ("$", "<")
-token = "Your Token Here"
+prefix = "$"
+token = ""
+botId = ""
+ownerId = ""
 
 client = commands.Bot(command_prefix = prefix)
 client.remove_command('help')
-extensions = ['command', 'respond']
+extensions = ['command', 'respond', 'AIML']
 
 try:
     with open('authorized_servers.txt', 'r') as f:
@@ -19,17 +22,18 @@ except FileNotFoundError:
     with open('authorized_servers.txt', 'w+') as f:
         authServerList = []
         f.close()
-        print("NO AUTHORIZED SERVERS")
+        print("\nNO AUTHORIZED SERVERS")
+
 
 @client.command(pass_context = True)
 async def authorize(ctx, serverId):
-    if ctx.message.server is None and ctx.message.author.id == "Your ID Here":
+    if ctx.message.server is None and ctx.message.author.id == ownerId:
         with open('authorized_servers.txt', 'a') as f:
             f.write(',' + serverId)
             f.close()
-        print("Authorized server :: " + serverId)
+        print("\nAuthorized server :: " + serverId)
 
-@client.command()
+'''@client.command()
 async def load(extension):
     for extension in extensions:
         try:
@@ -45,7 +49,7 @@ async def unload(extension):
             client.unload_extension(extension)
             print("{} unloaded [{}]".format(extension))
         except Exception as error:
-            print("{} cannot be unloaded. [{}]".format(extension, error))
+            print("{} cannot be unloaded. [{}]".format(extension, error))'''
 
 @client.event
 async def on_ready():
@@ -56,7 +60,6 @@ async def on_ready():
         if not server.id in authServerList:
             await client.leave_server(client.get_server(server.id))
             print("\nLeft Server :: " + server.name)
-
 
 async def listServers():
     await client.wait_until_ready()
