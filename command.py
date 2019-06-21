@@ -3,6 +3,8 @@ from discord.ext import commands
 from discord.utils import get
 import random
 
+from init import ownerId
+
 class Commands():
 	def __init__(self, client):
 		self.client = client
@@ -60,7 +62,7 @@ class Commands():
 			"My creator is ",
 			"All hail "
 		]
-		await self.client.say(random.choice(possibleResponses) + "<@257247797311569920>")
+		await self.client.say(random.choice(possibleResponses) + "<@" + ownerId +">")
 
 	@commands.command(pass_context = True)
 	async def bailey(self, ctx):
@@ -170,26 +172,7 @@ class Commands():
 		]
 		embed = discord.Embed(name = "info", color = 0x307af2)
 		embed.set_image(url = random.choice(possibleResponses))
-		await self.client.say(embed = embed)		
-
-	@commands.command(name = "@498548614075908098>", pass_context = True)
-	async def tagged(self, ctx):
-		if ctx.message.author.id == "257247797311569920":
-			possibleResponses = [
-			"Ye yeet ",
-			"Yes? ",
-			"What's up? ",
-			":b: ",
-			]
-		else:
-			possibleResponses = [
-			"Fuck off ",
-			"I don't talk to blacks ",
-			"Piss off cunt ",
-			"Stop being a faggot, then we can talk ",
-			"I don't talk to gays ",
-			]
-		await self.client.say(random.choice(possibleResponses) + ctx.message.author.mention)
+		await self.client.say(embed = embed)
 
 	@commands.command()
 	async def stfu(self):
