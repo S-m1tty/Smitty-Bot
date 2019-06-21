@@ -19,7 +19,7 @@ class AIML:
         # Load AIML kernel
         self.aiml_kernel = aiml.Kernel()
         initial_dir = os.getcwd()
-        os.chdir(pkg_resources.resource_filename(__name__, '/aiml/alice/'))  # Change directories to load AIML files properly
+        os.chdir(pkg_resources.resource_filename(__name__, '/aiml/'))  # Change directories to load AIML files properly
         startup_filename = pkg_resources.resource_filename(__name__, STARTUP_FILE)
         self.aiml_kernel.learn(startup_filename)
         self.aiml_kernel.respond("LOAD AIML")
