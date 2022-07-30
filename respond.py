@@ -29,10 +29,10 @@ class Speak():
 			else:
 				possibleResponses = [
 				"Fuck off ",
-				"I don't talk to blacks ",
-				"Piss off cunt ",
-				"Stop being a faggot, then we can talk ",
-				"I don't talk to gays ",
+				"I don't talk to bums ",
+				"Piss off loser ",
+				"Stop being a bum, then we can talk ",
+				"I don't talk to losers ",
 				]
 			await self.client.send_message(message.channel, random.choice(possibleResponses) + message.author.mention)
 
